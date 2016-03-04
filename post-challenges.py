@@ -1,8 +1,15 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""
+Author: Freddie Vargus (github.com/FreddieV4)
+File: post_challenges.py
+Purpose: Used to pull weekly challenges from r/dailyprogrammer
+"""
+
 import re
 import os
 import praw
 from pprint import pprint
+from subprocess import call
 
 NUM_CHALLENGES = 3
 
@@ -43,7 +50,7 @@ def get_current_week():
 		os.system('mv challenge_text.md "{}"'.format(title_lst[i]))
 
 
-	#os.system("./send-data.sh")
+	call("./send-data.sh")
 
 
 def get_all_submissions():
@@ -55,30 +62,27 @@ def get_all_submissions():
 	r = praw.Reddit(user_agent="dailyprogrammer-all")
 	sub = r.search("Challenge #", subreddit="dailyprogrammer", sort="hot", limit=1000, period='all')	
 	_sub = r.search("Challenge #", subreddit="dailyprogrammer", sort="hot", limit=1000, period='all')
-
-	#posts = sorted([re.sub(r'\[([A-Z0-9\-\/]+)\]', '', str(x.title)).lstrip() for x in sub])
 	
-	#_posts = posts.copy()
-
+	
 	# get challenge titles & selftext
-	challenge_titles = [catch(str(x.title)) for x in sub] #if 'EASYeasy' in x or 'INTERMEDIATEintermediate' in x or 'HARDhard' in x]
-	#del challenge_titles[0]
+	challenge_titles = [catch(str(x.title)) for x in sub]
 	challenge_text = [catch(str(x.selftext)) for x in _sub]
-	#del challenge_text[0]
 
 	# cleanup titles for directory names
 	title_lst = []
 	for title in challenge_titles:
-		t = re.sub(r'\[([0-9\-\/\PSA\Meta]+)\]', '', title)
+		t = re.sub(r'\[([0-9\-\/]+)\]', '', title)
 		title_lst.append(t.lstrip())
 	print("\nTITLES length", len(title_lst))
 	print("\n")
 	#pprint(title_lst)
 
 	# name directories after challenges
-	# add challenge selftext to directories
-	for i in range(NUM_CHALLENGES):
+	for i in range(len(challenge_titles)):
 		os.system('mkdir "{}"'.format(title_lst[i]))
+	
+	# add challenge selftext to directories
+	for i in range(len(challenge_titles)):
 		f = open('challenge_text.md', 'w')
 		f.write(challenge_text[i])
 		f.close()
@@ -86,7 +90,11 @@ def get_all_submissions():
 
 
 def catch(data):
-	
+	""" Used to skip over any encoding errors
+	when using LC for creation of titles and selftext
+	lists
+	"""
+
 	try:
 		print(data)
 		return data
@@ -96,15 +104,4 @@ def catch(data):
 
 
 if __name__ == '__main__':
-	get_all_submissions()
-
-
-
-
-
-
-
-
-
-
-
+	get_current_week()	
