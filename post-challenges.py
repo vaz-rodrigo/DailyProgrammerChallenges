@@ -9,7 +9,6 @@ import re
 import os
 import praw
 from pprint import pprint
-from subprocess import call
 
 NUM_CHALLENGES = 3
 
@@ -50,7 +49,7 @@ def get_current_week():
 		os.system('mv challenge_text.md "{}"'.format(title_lst[i]))
 
 
-	call("./send-data.sh")
+	os.system("./send-data.sh")
 
 
 def get_all_submissions():
