@@ -16,9 +16,9 @@ The [**post-challenges.py**](https://github.com/FreddieV4/DailyProgrammerChallen
 
 ## Challenges & Solutions
 
-See a missing challenge & missing selftext? Don't see a solution to a challenge? Submit a copy of the challenge as a directory and/or your own solution! Go ahead and fork this repo, upload your solutions to the directory for the specified challenge and submit a pull request.
+See a missing challenge & missing selftext? Want to add a solution to a challenge? Submit a copy of the challenge as a directory and/or your own solution! Go ahead and fork this repo, upload your solutions to the directory for the specified challenge and submit a pull request.
 
-This repository is primarily meant to serve asa downloadable, offline version of programming challenges, but can also serve as an example solution bank for these challenges.
+This repository is primarily meant to serve as a downloadable, offline version of programming challenges, but can also serve as an example solution bank for these challenges.
 
 
 -------------------------------------
