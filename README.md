@@ -24,6 +24,6 @@ This repository is primarily meant to serve as a downloadable, offline version o
 -------------------------------------
 **Creator:** [**Freddie Vargus**](http://github.com/FreddieV4)
 
-This project was inspired by [**LewisJohnson**](https://github.com/LewisJohnson/dailyprogrammer), whom I collaborated with on a similar repository.
-
 Uses the [**MIT License**](https://github.com/FreddieV4/DailyProgrammerChallenges/blob/master/LICENSE)
+
+This project was inspired by [**LewisJohnson**](https://github.com/LewisJohnson/dailyprogrammer), whom I collaborated with on a similar repository.
