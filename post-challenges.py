@@ -12,6 +12,12 @@ from pprint import pprint
 
 NUM_CHALLENGES = 3
 
+debug = True
+
+def db(string):
+	if debug:
+		print("DB: ", string)
+
 
 def get_current_week():
 	""" Gets 3 challenges, easy, intermediate, hard
@@ -28,9 +34,7 @@ def get_current_week():
 	
 	# get challenge titles & selftext
 	challenge_titles = [str(x.title) for x in chals]
-	del challenge_titles[0]
 	challenge_text = [str(x.selftext) for x in _chals]
-	del challenge_text[0]
 
 	# cleanup titles for directory names
 	title_lst = []
