@@ -52,7 +52,7 @@ def get_current_week():
 		f.close()
 		os.system('mv challenge_text.md "{}"'.format(title_lst[i]))
 
-
+	os.system("./movedirs.sh")
 	os.system("./send-data.sh")
 
 
