@@ -29,6 +29,8 @@ solution2.py
 solutionX.py
 ```
 
+If you want your name, reddit username, github handle, what have you, to be included, just add a header comment to your file
+In Python for example, you can use """ some text """, in Java you can use /* Some text here */.
 ---------------------
 
 If you've done any of the above tasks, submit a Pull Request and feel free to add your name and a link to your GitHub profile to the list below.
