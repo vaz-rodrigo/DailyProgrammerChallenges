@@ -31,7 +31,7 @@ solutionX.py
 
 ---------------------
 
-If you've done any of the above tasks, feel free to add your name and a link to your GitHub profile to the list below.
+If you've done any of the above tasks, submit a Pull Request and feel free to add your name and a link to your GitHub profile to the list below.
 
 
 ### Contributors
