@@ -16,10 +16,7 @@ The [**post-challenges.py**](https://github.com/FreddieV4/DailyProgrammerChallen
 
 ## Challenges & Solutions
 
-See a missing challenge & missing selftext? Want to add a solution to a challenge? Submit a copy of the challenge as a directory and/or your own solution! Go ahead and fork this repo, upload your solutions to the directory for the specified challenge and submit a pull request.
-
-This repository is primarily meant to serve as a downloadable, offline version of programming challenges, but can also serve as an example solution bank for these challenges.
-
+See a missing challenge & missing selftext? Want to add a solution to a challenge? See the **CONTRIBUTING.md** file for how to submit a solution
 
 -------------------------------------
 **Creator:** [**Freddie Vargus**](http://github.com/FreddieV4)
