@@ -12,8 +12,7 @@ from pprint import pprint
 
 NUM_CHALLENGES = 3
 
-debug = True
-
+debug = False
 def db(string):
 	if debug:
 		print("DB: ", string)
