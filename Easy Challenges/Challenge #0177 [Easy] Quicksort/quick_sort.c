@@ -1,15 +1,15 @@
+/****************************
+ * Name: Casper Winsnes
+ *
+ * Description: Implementation of the quick sort algorithm as described on the 
+ * quicksort Wikipedia page using the Lomuto partitioning scheme.
+ *
+ * Last modified: Sun Mar 20, 2016
+ ****************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-/**
- * Implementation of the quick sort algorithm as described on the quicksort Wikipedia page 
- * using the Lomuto partitioning scheme.
- *
- * Time complexity:
- *  worst case: O(n^2)
- *  average: O(n*log(n))
- */
 
 /**
  * Swaps the values of items a and b.
@@ -23,6 +23,8 @@ void swap(float *a, float *b) {
 /**
  * Chooses the item at array[high] as a pivot and puts every element in array 
  * that is smaller than the pivot to the left of it.
+ *
+ * Returns the index of the pivot element.
  */
 int partition(float *array, int low, int high) {
   float pivot = array[high];
@@ -40,7 +42,7 @@ int partition(float *array, int low, int high) {
 }
 
 /**
- * Sorts an array between indexes low and high (inclusive).
+ * Sorts an array between indexes low and high (inclusive) using the quick sort algorithm.
  */
 void quick_sort(float *array, int low, int high) {
   if(low < high) {
