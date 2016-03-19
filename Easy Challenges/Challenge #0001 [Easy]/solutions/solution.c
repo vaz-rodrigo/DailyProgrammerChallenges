@@ -25,5 +25,5 @@ int main(void) {
 
 	fclose(file);
 
-	return 1;
+	return 0;   // return 1 would indicate an error wouldn't it? 
 }
