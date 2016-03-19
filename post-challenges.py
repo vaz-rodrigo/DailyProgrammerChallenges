@@ -27,7 +27,8 @@ def get_current_week():
 
 	r = praw.Reddit(user_agent="dailyprogrammer-challenges")
 	sub = r.get_subreddit("dailyprogrammer")
-
+	
+	# retrieve generators for top posts
 	chals = sub.get_top_from_week()
 	_chals = sub.get_top_from_week()
 	
@@ -38,7 +39,8 @@ def get_current_week():
 	# cleanup titles for directory names
 	title_lst = []
 	for title in challenge_titles:
-		t = re.sub(r'\[([0-9\-]+)\]', '', title)
+		t = re.sub(r'\[([0-9\-]+)\]', '', title) # removes datestamp
+		t = re.sub(r'[<>:\"\\\/|?*]', '', title) # removes reserved chars
 		title_lst.append(t.lstrip())
 	pprint(title_lst)
 
@@ -74,6 +76,7 @@ def get_all_submissions():
 	title_lst = []
 	for title in challenge_titles:
 		t = re.sub(r'\[([0-9\-\/]+)\]', '', title)
+		t = re.sub(r'[<>:\"\\\/|?*]', '', title) 
 		title_lst.append(t.lstrip())
 	print("\nTITLES length", len(title_lst))
 	print("\n")
