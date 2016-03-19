@@ -1,3 +1,5 @@
+// Solution by https://github.com/mateoKaradza
+
 #include <stdio.h>
 #include <stdlib.h>
 
