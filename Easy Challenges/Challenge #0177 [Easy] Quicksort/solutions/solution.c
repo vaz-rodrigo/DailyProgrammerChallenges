@@ -7,8 +7,6 @@
  * Last modified: Sun Mar 20, 2016
  ****************************/
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 
 /**
@@ -56,8 +54,6 @@ int main() {
   int N;
   scanf(" %d", &N);
   float array[N];
-
-  srand(time(NULL));
 
   for(int i=0; i<N; ++i) {
     scanf("%f", &array[i]);
