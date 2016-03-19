@@ -80,4 +80,4 @@ public class Solution {
 		
 	}//end integerErrorMessage function
 
-}//end BasicFunctions Class
+}//end Solutions Class
