@@ -5,9 +5,10 @@
 */
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.Math;
+import java.lang.Character;
 
 public class Solution {
 	
@@ -15,34 +16,33 @@ public class Solution {
 
 	public static void main(String[] args) {
 
-		//getting the inputs from the user and saving them approriately
-		String name = getString("What is your name? ");
-		int age = getInteger("What is your age? ", 0, Integer.MAX_VALUE);
-		String redditUsername = getString("What is your reddit username? ");
+		int numChars = 0;
+		String password;
 
-		//printing out the appropriate outputs
-		System.out.println("\nyour name is " + name + ", you are " + age + " years old, and your username is " + redditUsername);
+		//getting the inputs from the user and saving them approriately
+		int numPasswords = getInteger("How many passwords would you like? ", 1, Integer.MAX_VALUE);
+
+		for(int i = 1; i <= numPasswords; i++) {
+			numChars = getInteger("\nHow many characters would you like password " + i + " to be? ", 1, Integer.MAX_VALUE);
+			password = generatePassword(numChars);
+			System.out.println("Password " + i + ": " + password);
+		}
 	}
-	
-	
-	public static String getString(String prompt) {
-		String userStringInput = "";
-		boolean done = false;
+
+	public static String generatePassword(int numChars) {
+		//StringBuilder helps us build our string one character at a time
+		StringBuilder sb = new StringBuilder(numChars);
+		int rand = 0;
+		char randomChar;
+
+		for(int i = 0; i < numChars; i++) {
+			rand = (int)(Math.random() * 94) + 33; //generate random num in std ASCII Range
+			randomChar = Character.toChars(rand)[0];//toChars returns a char array
+			sb.append(randomChar);
+		}
+		return sb.toString();
+	}	
 		
-		do {
-			System.out.print(prompt);
-			
-			try { 
-				userStringInput = input.readLine();
-				done = true;
-			}//end try
-			catch (IOException e) {System.out.print("\nERROR: Input must be a valid string!\n\n");}
-			
-		} while(!done);
-		
-		return userStringInput;
-	}//end getString function
-	
 	public static int getInteger(String prompt, int LB, int UB) {
 		int userIntInput = -1; //random number to satisfy compiler
 		boolean done = false; //boolean flag
@@ -86,4 +86,4 @@ public class Solution {
 		
 	}//end integerErrorMessage function
 
-}//end BasicFunctions Class
+}//end Solutions Class
