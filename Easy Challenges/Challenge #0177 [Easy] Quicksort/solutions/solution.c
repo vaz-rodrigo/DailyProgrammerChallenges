@@ -24,7 +24,7 @@ void swap(float *a, float *b) {
  * Chooses the item at array[high] as a pivot and puts every element in array 
  * that is smaller than the pivot to the left of it.
  *
- * Returns the index of the pivot element.
+ * @return the index of the pivot element.
  */
 int partition(float *array, int low, int high) {
   float pivot = array[high];
@@ -69,4 +69,5 @@ int main() {
     printf("%f ", array[i]);
   }
   printf("\n");
+  return 0;
 }
