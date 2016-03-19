@@ -16,7 +16,7 @@ The [**post-challenges.py**](https://github.com/FreddieV4/DailyProgrammerChallen
 
 ## Challenges & Solutions
 
-See a missing challenge & missing selftext? Want to add a solution to a challenge? See the **CONTRIBUTING.md** file for how to submit a solution
+See a missing challenge & missing selftext? Want to add a solution to a challenge? See the [**CONTRIBUTING.md**](https://github.com/FreddieV4/DailyProgrammerChallenges/blob/master/CONTRIBUTING.md) file for how to submit changes.
 
 -------------------------------------
 **Creator:** [**Freddie Vargus**](http://github.com/FreddieV4)
