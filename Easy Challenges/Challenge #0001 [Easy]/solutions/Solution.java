@@ -1,3 +1,9 @@
+/*
+** Author: MohammedShabbar Manek
+** Github: msmanek
+** Website: msmanek.me
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
