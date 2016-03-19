@@ -26,7 +26,9 @@ A pawn that moves 2 squares can still be captured on the next move by another pa
 A king that moves 2 squares through castling can still be captured on the next move by any piece on the ghost square that he would have been on if he had moved just 1 square instead of 2. While such a castle is an illegal move in official chess, for a computer, it may be easier to declare a move illegal after the king is captured on next move.
 
 **modified FEN starting position input**
+
 `snbqkbns/pppppppp/8/8/4P3/8/PPPP1PPP/SNBQKBNS`
+
 (after most common first move)
 
 # output 2 and input to 3
@@ -77,9 +79,13 @@ input state to this function: (starting chess position)
 suggested moves: (at least first 3. bonus for up to 5)
 
 e2-e4 c7-c5
+
 f1-c4 g8-f6
+
 c4xf7 e8xf7
+
 e4-e5 d7-d5
+
 e5xd6 (en passant)
 
 Move format: for each line: (white move "from square"(- or x)"to square") space(s) (black move "from square"(- or x)"to square"). x is optional indicator of move that captures an oponent piece.
