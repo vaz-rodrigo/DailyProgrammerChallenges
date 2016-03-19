@@ -6,10 +6,10 @@ For example:
 `cold -> cord -> card -> ward -> warm`
 
 # Sample input
-Given a word, list all the words that can appear next to it in a word ladder, 
+Challenge: Given a word, list all the words that can appear next to it in a word ladder, 
 using [this list of 3,807 four letter words](http://pastebin.com/zY4Xt7iB)
 
-`puma`
+Input: `puma`
 
 # Sample output
 ```
