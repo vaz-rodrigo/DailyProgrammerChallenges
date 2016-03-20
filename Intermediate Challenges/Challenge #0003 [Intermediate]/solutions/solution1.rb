@@ -145,7 +145,7 @@ class ColumnarTranspositionCipher
       row_chunk.map! {|c| c ? c : " " }
       decrypted_message << row_chunk.join("")
     end
-    return decrypted_message
+    return decrypted_message.strip
   end
 
 end
