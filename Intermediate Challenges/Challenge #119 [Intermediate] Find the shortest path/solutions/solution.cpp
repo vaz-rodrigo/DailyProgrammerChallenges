@@ -90,6 +90,8 @@ int main() {
 
       switch(current) {
         case 'W':
+          //By not creating any edges from walls to neighbours we make sure that
+          //any path into a wall is a dead end.
           continue;
         case 'S':
           start = id;
