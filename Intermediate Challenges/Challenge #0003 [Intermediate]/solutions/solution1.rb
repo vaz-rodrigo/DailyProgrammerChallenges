@@ -127,8 +127,7 @@ class ColumnarTranspositionCipher
       encrypted_message << row_chunk.join("")
     end
 
-    # strip padding to return intended output
-    return encrypted_message.strip
+    return encrypted_message
   end
 
   def get_decrypted_message(message)
@@ -146,7 +145,7 @@ class ColumnarTranspositionCipher
       row_chunk.map! {|c| c ? c : " " }
       decrypted_message << row_chunk.join("")
     end
-    return decrypted_message.strip
+    return decrypted_message
   end
 
 end
