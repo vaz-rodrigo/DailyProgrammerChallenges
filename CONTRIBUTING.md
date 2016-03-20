@@ -51,3 +51,4 @@ If you've done any of the above tasks, fork the repo, make your changes and subm
 ### Contributors
 [Freddie Vargus](http://github.com/FreddieV4)
 [Subhra S. Sarkar](https://github.com/rurtle)
+[Austin W. Smith](https://github.com/AssailantLF)
