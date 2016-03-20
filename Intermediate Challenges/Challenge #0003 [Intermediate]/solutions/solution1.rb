@@ -5,6 +5,7 @@ module Main
 
   def self.init
     STDOUT.sync = true
+    Encoding.default_internal = "utf-8"
     
     puts "Type in a number to begin."
     puts "1: Encrypt Message"
@@ -18,17 +19,27 @@ module Main
       puts "Type your message to be encrypted:"
       message = gets.chomp
       puts "Processing.."
+      
+      s_cipher = SubsitutionCipher.new
       t_cipher = ColumnarTranspositionCipher.new
-      encrypted_message = t_cipher.get_encrypted_message(message)
-      puts "Your encrypted message is: \n#{encrypted_message}"
+
+      s_message = s_cipher.get_encrypted_message(message)
+      encrypted_message = t_cipher.get_encrypted_message(s_message)
+
+      puts "Your encrypted message is: '#{encrypted_message}'"
     elsif c == 2
     
       puts "Type your message to be decrypted:"
       message = gets.chomp
       puts "Processing.."
+      s_cipher = SubsitutionCipher.new
       t_cipher = ColumnarTranspositionCipher.new
-      decrypted_message = t_cipher.get_decrypted_message(message)
-      puts "Your decrypted_message is: \n#{decrypted_message}"
+
+
+      t_message = t_cipher.get_decrypted_message(message)
+      decrypted_message = s_cipher.get_decrypted_message(t_message)
+
+      puts "Your decrypted_message is: '#{decrypted_message}'"
     else
       puts "Invalid choice!"
       self.init
@@ -37,6 +48,30 @@ module Main
 end
 
 class SubsitutionCipher
+
+  def initialize(*args)
+    @shift_index = 3
+  end
+
+  def get_encrypted_message(message)
+    encrypted_message = ""
+    message.codepoints.each do |cp|
+      chr = (cp+@shift_index).chr
+      encrypted_message << chr
+    end
+    return encrypted_message
+  end
+
+  def get_decrypted_message(message)
+    encrypted_message = ""
+    message.codepoints.each do |cp|
+      chr = (cp-@shift_index).chr
+      encrypted_message << chr
+    end
+    return encrypted_message
+  end
+
+
 end
 
 class ColumnarTranspositionCipher
@@ -68,7 +103,6 @@ class ColumnarTranspositionCipher
     puts "Tranposed Indexes: #{@transpose_indexes}"
 
     message_arr = message.split("").each_slice(@original_key.length).to_a
-    puts "Message Array: #{message_arr}"
 
     encrypted_message = ""
 
@@ -79,16 +113,18 @@ class ColumnarTranspositionCipher
         # character
         row_chunk[@transpose_indexes[index]] = char
       end
-      puts "Row Chunk: #{row_chunk}"
+      puts "row_chunk: #{row_chunk}"
+      row_chunk.map! {|c| c ? c : " " }
       encrypted_message << row_chunk.join("")
     end
 
-    return encrypted_message
+    return encrypted_message.strip
   end
 
   def get_decrypted_message(message)
+
     message_arr = message.split("").each_slice(@original_key.length).to_a
-    puts "Message Array: #{message_arr}"
+    puts "Message: #{message_arr}"
 
     decrypted_message = ""
     message_arr.each do |arr|
@@ -98,10 +134,11 @@ class ColumnarTranspositionCipher
         # character
         row_chunk[@transpose[index]] = char
       end
-      puts "Row Chunk: #{row_chunk}"
+      puts "row_chunk: #{row_chunk}"
+      row_chunk.map! {|c| c ? c : " " }
       decrypted_message << row_chunk.join("")
     end
-    return decrypted_message
+    return decrypted_message.strip
   end
 
 end
