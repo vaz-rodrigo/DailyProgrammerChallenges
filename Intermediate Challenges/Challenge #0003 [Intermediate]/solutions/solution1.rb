@@ -1,4 +1,5 @@
 # Author: Lim Yao Jie
+# Github: https://github.com/causztic
 # Description: Subsitution Cipher + Transposition Cipher together.
 
 module Main
