@@ -14,9 +14,9 @@ module Main
     choice = gets.chomp
 
     begin
-      c = choice.to_i
+      case choice.to_i
 
-      if c == 1
+      when 1
       
         puts "Type your message to be encrypted:"
         message = gets.chomp
@@ -29,7 +29,7 @@ module Main
         encrypted_message = t_cipher.get_encrypted_message(s_message)
 
         puts "Your encrypted message is: '#{encrypted_message}'"
-      elsif c == 2
+      when 2
       
         puts "Type your message to be decrypted:"
         message = gets.chomp
