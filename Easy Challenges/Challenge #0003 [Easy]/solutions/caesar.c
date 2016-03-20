@@ -71,10 +71,10 @@ static void usage(void){
     printf("   or: %s [LONG-OPTION]...\n", invoc_name);
     printf("Run caesar cipher on input and output to standard output.\n");
     printf("\n");
-    printf("    -d      decrypt text");
-    printf("    -k      select shift for cipher (default is 3)");
-    printf("    -h      display this help and exit");
-    printf("    -v      display version information and exit");
+    printf("    -d, --decrypt  decrypt text\n");
+    printf("    -k, --key      select shift for cipher (default is 3)\n");
+    printf("    -h, --help     display this help and exit\n");
+    printf("    -v, --version  display version information and exit\n");
 }
 
 static void version(void){
