@@ -46,7 +46,8 @@ int main(int argc, char **argv){
                 version();
                 exit(EXIT_SUCCESS);
             default:
-                break;
+                fprintf(stderr, "Try %s --help for more information.\n", invoc_name);
+                exit(EXIT_FAILURE);
         }
     }
 
