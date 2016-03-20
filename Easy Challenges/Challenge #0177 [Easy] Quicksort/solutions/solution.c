@@ -7,6 +7,7 @@
  * Last modified: Sun Mar 20, 2016
  ****************************/
 #include <stdio.h>
+#include <stdlib.h>
 
 
 /**
@@ -53,7 +54,7 @@ void quick_sort(float *array, int low, int high) {
 int main() {
   int N;
   scanf(" %d", &N);
-  float array[N];
+  float *array = (float*) malloc(sizeof(float)*N);
 
   for(int i=0; i<N; ++i) {
     scanf("%f", &array[i]);
@@ -65,5 +66,7 @@ int main() {
     printf("%f ", array[i]);
   }
   printf("\n");
+
+  free(array);
   return 0;
 }
