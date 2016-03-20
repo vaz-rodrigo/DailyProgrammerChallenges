@@ -13,7 +13,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define KEY	07										/* Cryptographic key */
+/* Cryptographic key */
+#define KEY	07
 
 /*
  * Driver function
@@ -21,9 +22,9 @@
 
 int main(int argc, char *argv[])
 {
-	int i = 0;										/* Loop index */
-	int len = 0;									/* String length */
-	char str[] = "Program written on 03-19-2016"; 	/* Input string */
+	int i = 0;                                      /* Loop index */
+	int len = 0;                                    /* String length */
+	char str[] = "Program written on 03-19-2016";   /* Input string */
 
 	/* Printing the initial state of the string */
 	printf("Initial string\t: %s\n", str);
