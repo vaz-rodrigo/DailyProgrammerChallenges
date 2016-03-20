@@ -86,7 +86,7 @@ class ColumnarTranspositionCipher
 
   def initialize(*args)
 
-    @key = "rickastley"
+    @key = "rickastley" # it is crucial for the key to have unique letters!
     @original_key = @key.codepoints
     @sorted_key = @original_key.sort
 
@@ -96,7 +96,7 @@ class ColumnarTranspositionCipher
     # get transposed keys based on sorted index of original keys
     @original_key.each {|k| @transpose << @sorted_key.find_index(k) } 
 
-    # return encrypted message based on transposed index
+    # get transposed indexes based on original keys and transposed keys
     (0..@transpose.length-1).each {|i| @transpose_indexes << @transpose.find_index(i) }
   end
 
@@ -114,35 +114,35 @@ class ColumnarTranspositionCipher
 
     encrypted_message = ""
 
+    # arrays to wrap the message to a "table" with the row length of @key
     message_arr.each do |arr|
       # row
       row_chunk = []
       arr.each_with_index do |char, index|
         # character
-        row_chunk[@transpose_indexes[index]] = char
+        row_chunk[@transpose_indexes[index]] = char # set the row of transposed characters
       end
-      puts "row_chunk: #{row_chunk}"
-      row_chunk.map! {|c| c ? c : " " }
+      # add padding of space if empty to prevent the characters from skipping their intended index.
+      row_chunk.map! {|c| c ? c : " " } 
       encrypted_message << row_chunk.join("")
     end
 
+    # strip padding to return intended output
     return encrypted_message.strip
   end
 
   def get_decrypted_message(message)
 
     message_arr = message.split("").each_slice(@original_key.length).to_a
-    puts "Message: #{message_arr}"
 
     decrypted_message = ""
+    # same as encryption, set arrays to wrap the encrypted message to a "table" form with the row length of @key
     message_arr.each do |arr|
       # row
       row_chunk = []
       arr.each_with_index do |char, index|
-        # character
-        row_chunk[@transpose[index]] = char
+        row_chunk[@transpose[index]] = char # set the row of transposed characters
       end
-      puts "row_chunk: #{row_chunk}"
       row_chunk.map! {|c| c ? c : " " }
       decrypted_message << row_chunk.join("")
     end
