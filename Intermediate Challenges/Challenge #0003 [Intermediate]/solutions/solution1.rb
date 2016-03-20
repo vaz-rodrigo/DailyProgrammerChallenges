@@ -12,42 +12,49 @@ module Main
     puts "2: Decrypt Message"
     choice = gets.chomp
 
-    c = choice.to_i
-    
-    if c == 1
-    
-      puts "Type your message to be encrypted:"
-      message = gets.chomp
-      puts "Processing.."
+    begin
+      c = choice.to_i
+
+      if c == 1
       
-      s_cipher = SubsitutionCipher.new
-      t_cipher = ColumnarTranspositionCipher.new
+        puts "Type your message to be encrypted:"
+        message = gets.chomp
+        puts "Processing.."
+        
+        s_cipher = SubsitutionCipher.new
+        t_cipher = ColumnarTranspositionCipher.new
 
-      s_message = s_cipher.get_encrypted_message(message)
-      encrypted_message = t_cipher.get_encrypted_message(s_message)
+        s_message = s_cipher.get_encrypted_message(message)
+        encrypted_message = t_cipher.get_encrypted_message(s_message)
 
-      puts "Your encrypted message is: '#{encrypted_message}'"
-    elsif c == 2
-    
-      puts "Type your message to be decrypted:"
-      message = gets.chomp
-      puts "Processing.."
-      s_cipher = SubsitutionCipher.new
-      t_cipher = ColumnarTranspositionCipher.new
+        puts "Your encrypted message is: '#{encrypted_message}'"
+      elsif c == 2
+      
+        puts "Type your message to be decrypted:"
+        message = gets.chomp
+        puts "Processing.."
+        s_cipher = SubsitutionCipher.new
+        t_cipher = ColumnarTranspositionCipher.new
 
 
-      t_message = t_cipher.get_decrypted_message(message)
-      decrypted_message = s_cipher.get_decrypted_message(t_message)
+        t_message = t_cipher.get_decrypted_message(message)
+        decrypted_message = s_cipher.get_decrypted_message(t_message)
 
-      puts "Your decrypted_message is: '#{decrypted_message}'"
-    else
-      puts "Invalid choice!"
+        puts "Your decrypted_message is: '#{decrypted_message}'"
+      else
+        puts "Invalid choice!"
+        self.init
+      end
+    rescue
+      puts "Please type in a number!"
       self.init
     end
   end
 end
 
 class SubsitutionCipher
+
+  # shifts index by a number, which in a sense subsitutes a character for another down the index shift.
 
   def initialize(*args)
     @shift_index = 3
