@@ -1,6 +1,8 @@
-mport java.util.ArrayList;
+import java.util.ArrayList;
 
 /*
+ * @author https://github.com/Hoenn
+ *
  *Need a distraction today? Not only does 12+1=11+2, but the letters “twelve plus one”
  * rearrange to give you “eleven plus two”
  * Your task is to write a program that finds equations similar to Tyson’s that form anagrams 
