@@ -54,6 +54,7 @@ int main(int argc, char **argv){
         if (isalpha(c)) {
             /* Only valid if character set is ASCII or extension thereof */
             c = (mode == ENCRYPT) ? c + key : c - key;
+            /* deal with wrap-around */
             if (!isalpha(c))
                c += (mode == ENCRYPT) ? -26: 26; 
         }
