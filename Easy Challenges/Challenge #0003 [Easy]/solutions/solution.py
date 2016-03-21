@@ -1,4 +1,4 @@
-#Python 3.X solution for Easy Challenge #0002
+#Python 3.X solution for Easy Challenge #0003
 #GitHub: https://github.com/Ashkore
 #https://www.reddit.com/user/Ashkoree/
 alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
