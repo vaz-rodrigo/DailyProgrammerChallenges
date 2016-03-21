@@ -7,7 +7,6 @@ def add():
     values = []
     while True:
         value = input("Please enter a value or leave blank when you have no more values:")
-        print (len(values))
         if value != "" and numtest(value):
             value = int(value)
             values.append(value)
