@@ -62,3 +62,4 @@ If you've done any of the above tasks, fork the repo, make your changes and subm
 - [Subhra S. Sarkar](https://github.com/rurtle)
 - [Austin W. Smith](https://github.com/AssailantLF)
 - [Ibar Romay](https://github.com/rowmatrix)
+- - [Jacob Herrington](https://github.com/jacob-on-github)
